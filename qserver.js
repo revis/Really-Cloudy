@@ -155,4 +155,6 @@ http.createServer(function (req, res) {
 
 }).listen(8011);
 
+// In the tested configuration this was running on port 8011 behind a
+// nginx proxy redirecting /queue/ to this node.js instance
 sys.puts('Server running at http://127.0.0.1:8011/');

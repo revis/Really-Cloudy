@@ -48,6 +48,7 @@ function QWorker() {
                     }
                 }
             };
+            // This should be changed to the URL of your queue server
             rq.open("GET","/queue/",true);
             rq.send(null);
             this.rq = rq;
@@ -83,6 +84,7 @@ function QWorker() {
                 var params = "{'pktid':'" + pktid + "','result':'" + result + "'}";
                 // Upload the result
                 var rq = new XMLHttpRequest();
+                // This should be changed to the URL of your queue server
                 rq.open('POST','/queue/',true);
                 rq.setRequestHeader("Content-type", "application/json");
                 rq.setRequestHeader("Content-length", params.length);
