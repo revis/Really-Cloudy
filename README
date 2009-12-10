@@ -1,0 +1,23 @@
+Really Cloudy is a library that lets you pass processing work to your website visitors.
+
+It consists of three parts:
+
+qclient.js : a bootstrap for the web worker on the client machine, should be included in your website
+qworker.js : the file that is executed by the web worker and downloads/process the data
+qserver.js : a basic really cloudy queue server for node.js
+
+1) A queue server is set up that distributes a processing function plus data to clients. The queue server is responsible for keeping track of which work packages should be sent to which client and marshalling the results. By default qserver.js assumes that any result returned from two different IP addresses is correct.
+
+2) qclient.js is distributed to clients as part of your web page.
+
+3) If the client is web-worker capable then qworker.js is downloaded and initialised. This requests work packages from the queue server (as configured in qclient.js) and process them. If there is no work available the server is responsible for supplying a retry period before the next request.
+
+Implementation nodes:
+
+ - Data is not secure, therefore only anonymised/non-critical data can be sent.
+
+ - A more advanced method of detecting collusion/cheating is a work in progress.
+
+ - Really Cloudy is only practical in cases where the run time of the computation is longer than the time taken to compare the results.
+
+ - There are many other limitations.
