@@ -1,3 +1,7 @@
+/* qclient.js - Richard Revis - http://theplanis.com
+ * Bootstraps a qworker to execute jobs from the queue configured in qworker.js
+ * Provides .start() .stop() and .setOptions()
+ */
 function QClient(options) {
     this.dbg = false;
     this.messageHandler = function(message) {
@@ -34,7 +38,7 @@ function QClient(options) {
         // Sample options {'delaybetweenrequests':'5000'}
         this.options = this.options || {};
         // Message sent as string for compatibility
-        this.worker.postMessage('{"type":"none","options":' + JSON.stringify(options) + '}')
+        this.worker.postMessage('{"type":"none","options":' + JSON.stringify(options) + '}');
     };
 }
 
