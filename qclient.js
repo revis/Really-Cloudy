@@ -36,6 +36,7 @@ function QClient(options) {
     };
     this.setOptions = function(options) {
         // Sample options {'delaybetweenrequests':'5000'}
+        // This delay happens TWICE per cycle (get data, post results)
         this.options = this.options || {};
         // Message sent as string for compatibility
         this.worker.postMessage('{"type":"none","options":' + JSON.stringify(options) + '}');
