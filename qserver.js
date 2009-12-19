@@ -1,9 +1,15 @@
+/* qserver.jss - Richard Revis - http://theplanis.com
+ * This is a DEMONSTRATION queue server written for node.js
+ * It is recommended that you implement your own in something more suitable for a production environment
+ * Interesting parts of the file:
+ *   this.workRequests - format of the work request packet
+ *   this.requestHandler - format of the messsage as the client expects it
+ */
 function QManager() {
     // Object keyed by UID
     // Attribs: fn,data,{prelimResults},{preferences},[sent],lastSent,callback
     this.workRequests = {
-        // Example work request that does no work and returns the final verified result to the
-        // client
+        // Example work request that does no work and echos the final verified answer to the log
         '1a':{'fn':'function(d){return d;}','data':'2','callback':function(d){sys.puts(d);}}
     };
     // Object keyed by IP
